@@ -14,8 +14,8 @@
           wx:key='index'>
           <view class="for_item">{{item}} :</view>
           <view class="item_detail"
-            wx:if="{{!changing}}">{{data[index]}}</view>
-          <textarea wx:if="{{changing}}"
+            wx:if="{{!changing || index==1}}">{{data[index]}}</view>
+          <textarea wx:if="{{changing && index!=1}}"
             class="item_detail_textarea"
             value="{{data[index]}}"
             auto-height="true"
