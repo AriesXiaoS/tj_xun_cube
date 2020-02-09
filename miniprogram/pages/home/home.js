@@ -19,7 +19,6 @@ Page({
     select_i:'',
     role:0,
     username:'none',
-    user:true
 
 
   },
@@ -52,6 +51,10 @@ Page({
    * close detail
    */
   closeDetail:function(e){
+    //console.log(e.detail)
+    if(e.detail){
+      this.sql(this.data.input_value)
+    }
     this.setData({
       detail:false
     })
@@ -141,57 +144,63 @@ Page({
         nothing:true
       })
     }else{
-      wx.showLoading({
-        title: '查询中',
-      })
-      db.collection('students').where(_.or([{
-        _id: db.RegExp({
-          regexp: input_value,
-          option: 'isg'
-        })
-      },
-      {
-        name: db.RegExp({
-          regexp: input_value,
-          option: 'isg'
-        })
-      }
-      ])).get({
-        success: function (res) {
-          //console.log(res.data)
-          if(res.data.length==0){
-            that.setData({
-              nothing:true
-            })
-            wx.showToast({
-              title: '无匹配',
-              image: '../../images/error.png'
-            })
-          }else{
-            //console.log(res)
-            that.setData({
-              res: res.data,
-              nothing: false
-            })
-            wx.hideLoading()
-          }
-          
-          
-        },
-        fail: function (res) {
-          //console.log('error')
-          wx.hideLoading()
-          wx.showModal({
-            title: '查询失败',
-            content: '请检查网络连接',
-            showCancel: false,
-            confirmText: '我知道了',
-            confirmColor: '#ea5858'
-          })
-        }
-      })
+      that.sql(input_value)
     }
     
+  },
+
+  sql:function(input_value){
+    var db = wx.cloud.database();
+    var that = this;
+    var _ = db.command
+    wx.showLoading({
+      title: '查询中',
+    })
+    db.collection('students').where(_.or([{
+      _id: db.RegExp({
+        regexp: input_value,
+        option: 'isg'
+      })
+    },
+    {
+      name: db.RegExp({
+        regexp: input_value,
+        option: 'isg'
+      })
+    }
+    ])).get({
+      success: function (res) {
+        //console.log(res.data)
+        if (res.data.length == 0) {
+          that.setData({
+            nothing: true
+          })
+          wx.hideLoading()
+          wx.showToast({
+            title: '无匹配',
+            image: '../../images/error.png'
+          })
+        } else {
+          //console.log(res)
+          that.setData({
+            res: res.data,
+            nothing: false
+          })
+          wx.hideLoading()
+        }
+      },
+      fail: function (res) {
+        //console.log('error')
+        wx.hideLoading()
+        wx.showModal({
+          title: '查询失败',
+          content: '请检查网络连接',
+          showCancel: false,
+          confirmText: '我知道了',
+          confirmColor: '#ea5858'
+        })
+      }
+    })
   },
 
   /**
@@ -267,14 +276,8 @@ Page({
     //console.log(typeof(options.role))
     var username=options.username;
     var role_names=['普通用户','管理员','root','su'];
-    var user,admin;
-    if (parseInt(options.role)==0){
-      user=true;
-    }else{
-      user=false;
-    }
+
     this.setData({
-      user:user,
       role: parseInt(options.role),
       role_name: role_names[parseInt(options.role)],
       username: username

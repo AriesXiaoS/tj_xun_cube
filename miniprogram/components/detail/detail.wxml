@@ -31,22 +31,26 @@
 
   <view class="bottom_box">
     <view class="bottom_item"
-      wx:if="{{user}}">
+      wx:if="{{role==0}}">
     </view>
     <view class="bottom_item"
       bindtap="change"
-      wx:if="{{!user & !changing}}">
+      wx:if="{{role>0 & !changing}}">
       <image src="../../images/i.png"
         mode="aspectFit"></image>
       <view>修改</view>
     </view>
     <view class="bottom_item"
       bindtap="confirm"
-      wx:if="{{!user & changing}}">
+      wx:if="{{role>0 & changing}}">
       <image src="../../images/v.png"
         mode="aspectFit"></image>
       <view>完成</view>
     </view>
+
+    <view class="bottom_item"
+      wx:if="{{role>1}}"
+      bindtap="deleteOneStu">删除</view>
 
     <view class="bottom_item"
       bindtap="close">

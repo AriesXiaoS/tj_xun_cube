@@ -34,12 +34,12 @@ exports.main = async (event, context) => {
             major: '' +row[3],
             class: '' +row[4],
             tel: '' +row[5],
-            dor: '' +row[6],
-            farther_name: '' + row[7],
-            farther_tel: '' +row[8],
-            mother_name: '' +row[9],
-            mother_tel: '' + row[10],
-            addition: '' +row[11]
+            dor: '' +row[6]+'-'+row[7]+'-'+row[8],
+            farther_name: '' + row[9],
+            farther_tel: '' +row[10],
+            mother_name: '' +row[11],
+            mother_tel: '' + row[12],
+            addition: '' +row[13]
           }
         })
         tasks.push(promise)

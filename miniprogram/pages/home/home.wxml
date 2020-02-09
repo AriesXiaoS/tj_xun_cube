@@ -16,7 +16,7 @@
   wx:if="{{detail}}"
   bindclose='closeDetail'
   bindalterData='alterData'
-  user="{{user}}"
+  role="{{role}}"
   select_data="{{select_data}}"></detail>
 
 <view class="main_box">

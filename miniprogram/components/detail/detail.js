@@ -8,9 +8,9 @@ Component({
       type:Array,
       value:''
     },
-    user:{
-      type:Boolean,
-      value:true
+    role:{
+      type:Number,
+      value:0
     }
   },
 
@@ -35,7 +35,10 @@ Component({
      * close the component
      */
     close:function(){
-      this.triggerEvent('close')
+      this.triggerEvent('close',false)
+    },
+    closeUpdate: function () {
+      this.triggerEvent('close', true)
     },
     /**
      * change alter
@@ -44,6 +47,49 @@ Component({
       this.setData({
         changing:true
       })
+    },
+    /**
+     * deleteOneStu
+     */
+    deleteOneStu:function(){
+      var that=this;
+      wx.showModal({
+        title: '确认删除',
+        content: '确认删除 ' + that.data.data[0] + ' ' + that.data.data[1] + ' ?',
+        confirmColor:'#ea5858',
+        success(res){
+          if(res.confirm){
+            wx.showLoading({
+              title: 'connecting',
+            })
+            wx.cloud.callFunction({
+              name: 'deleteOneStu',
+              data: {
+                stuid: that.data.data[1]
+              },
+              success: function (res) {
+                wx.showToast({
+                  title: '删除成功',
+                })
+                setTimeout(function(){
+                  that.closeUpdate()
+                },800)
+              },
+              fail: function (err) {
+                wx.hideLoading()
+                wx.showModal({
+                  title: '删除失败',
+                  content: '请检查网络连接',
+                  showCancel: false,
+                  confirmText: '我知道了',
+                  confirmColor: '#ea5858'
+                })
+              }
+            })
+          }
+        }
+      })
+      
     },
     /**
      * input in textarea
