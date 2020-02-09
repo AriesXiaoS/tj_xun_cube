@@ -1,0 +1,70 @@
+.head_box{
+  width: 750rpx;
+  height: 400rpx;
+  display: flex;
+  justify-content: center;align-items: center;
+}
+.head_box image{
+  width: 150rpx;
+}
+.login_box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;align-items: center;
+}
+.code_box{
+  width: 750rpx;
+  height: 400rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;align-items: center;
+}
+.input_box{
+  width: 750rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;align-items: center;
+
+}
+.input_box image{
+  width: 55rpx;
+  margin-right: 30rpx;
+  
+}
+.input_box input{
+  width: 300rpx;
+  height: 55rpx;
+  border: 2rpx solid red;
+  border-radius: 15rpx;
+  margin: 10rpx;
+  font-size: 30rpx;
+  padding-left: 15rpx;
+}
+
+
+.btn_box{
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;align-items: center;
+}
+
+.btn_icon{
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.check_box{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 25rpx;
+  width: 200rpx;
+  margin: 10rpx;
+  color:#b9292b;
+}
+.check_box image{
+  width: 30rpx;height: 30rpx;
+}

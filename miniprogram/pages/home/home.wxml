@@ -1,0 +1,123 @@
+<!--miniprogram/pages/home/home.wxml-->
+<view class="tarbar">
+  <image src="../../images/search.png"
+    mode="aspectFit"
+    bindtap="switch"
+    style="{{tarbar_style[0]}}"
+    data-id='0'></image>
+  <image src="../../images/self.png"
+    mode="aspectFit"
+    bindtap="switch"
+    style="{{tarbar_style[1]}}"
+    data-id='1'></image>
+</view>
+
+<detail class='detail_window'
+  wx:if="{{detail}}"
+  bindclose='closeDetail'
+  bindalterData='alterData'
+  user="{{user}}"
+  select_data="{{select_data}}"></detail>
+
+<view class="main_box">
+  <view class="item_box"
+    hidden="{{!show[0]}}">
+    <image src="../../images/main.png"
+      mode="aspectFit"
+      wx:if='{{nothing}}'
+      class="title_pic"></image>
+
+    <view class="input_box">
+      <view class="input_row">
+        <text>请输入查询的姓名或者学号</text>
+      </view>
+      <view class="input_row">
+        <image src="../../images/login_id.png"
+          mode="aspectFit"
+          class="icon"></image>
+        <input bindinput="inputSearch"
+          bindconfirm="confirmInput"></input>
+        <image src="../../images/sql.png"
+          mode="aspectFit"
+          bindtap="confirmInput"
+          class="icon"></image>
+      </view>
+      
+    </view>
+
+    <view class="detail_box"
+      wx:if="{{!nothing}}">
+      <view class="scroll_box">
+        <scroll-view scroll-y
+          style="width:750rpx;height:100%;">
+          <view class="for_box" 
+            bindtap="select"
+            data-id="{{index}}"
+            wx:for="{{res}}"
+            wx:key="_id">
+            <text class="name">{{item.name}}</text>
+            <text class="name">{{item._id}}</text>
+            <text class="major">{{item.major}}</text>
+          
+          </view>
+        </scroll-view>
+      </view>
+    
+    </view>
+
+    
+  
+  </view>
+
+
+  <view class="item_box"
+    hidden="{{!show[1]}}">
+    <image src="../../images/main.png"
+      mode="aspectFit"
+      class="title_pic"></image>
+    <view style="font-size:30rpx;color:#af8abd;">当前用户: {{username}}</view>
+    <view style="font-size:24rpx;color:#af8abd;margin-top:3rpx;">{{role_name}}</view>
+
+    <view class="setting_box">
+      <view class="setting"
+        bindtap="changePasswd">
+        <image src="../../images/setting.png"
+          mode="aspectFit"></image>
+        <view class="setting_text">个人密码修改</view>
+      </view>
+
+      <view class="setting" wx:if="{{role>0}}"
+        bindtap="setAccount">
+        <image src="../../images/new.png"
+          mode="aspectFit"></image>
+        <view class="setting_text">管理员账户管理</view>
+      </view>
+
+      <view class="setting" wx:if="{{role>1}}"
+        bindtap="uploadFile">
+        <image src="../../images/upload.png"
+          mode="aspectFit"></image>
+        <view class="setting_text">批量导入信息</view>
+      </view>
+
+      <view class="setting"></view>
+
+      <view class="setting">
+        <view class="exit_text" bindtap="exit">退出登录</view>
+      </view>
+    
+    </view>
+  
+  
+  
+  </view>
+
+
+
+
+
+
+
+
+
+</view>

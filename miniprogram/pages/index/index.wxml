@@ -1,0 +1,58 @@
+<!--miniprogram/pages/index/index.wxml-->
+<view class="head_box">
+  <image src="../../images/main.png"
+    mode="aspectFit"
+    bindlongpress="longTap"></image>
+  
+</view>
+
+<view class="login_box">
+
+  <view class="code_box" >
+    <view class="input_box">
+      <image src="../../images/login_id.png"
+        mode="aspectFit"></image>
+      <input placeholder="请输入用户名" value='{{username}}'
+        bindinput="inputId"></input>
+    </view>
+    <view class="input_box">
+      <image src="../../images/login_passwd.png"
+        mode="aspectFit"></image>
+      <input placeholder="请输入密码"
+        password="true" value="{{passwd}}"
+        bindinput="inputPasswd"></input>
+    </view>
+    <view class="input_box" style="flex-direction: column;">
+      <view class="check_box"
+          bindtap="setStore"
+          data-id='0'>
+        <view>保存用户名</view>
+        <image src="../../images/v.png"
+          hidden="{{!store[0]}}"
+          mode="aspectFit"></image>
+      </view>
+      <view class="check_box"
+          bindtap="setStore"
+          data-id='1'>
+        <view>保存密码</view>
+        <image src="../../images/v.png"
+          hidden="{{!store[1]}}"
+          mode="aspectFit"></image>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="btn_box">
+    <image src="../../images/login.png"
+      mode="aspectFit" class="btn_icon"
+      bindtap="confirm" 
+      animation='{{ani}}'></image>
+  
+  </view>
+
+  
+
+
+
+</view>

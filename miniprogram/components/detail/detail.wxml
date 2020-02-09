@@ -1,0 +1,65 @@
+<!--components/detail/detail.wxml-->
+<view class="backgroud" animation='{{backalpha}}'> </view>
+
+<view class="window" animation="{{windowmove}}">
+  <image src="../../images/main.png"
+    mode="aspectFit"
+    class="top_pic"></image>
+  <view class="detail_box">
+    <view class="scorll_box">
+      <scroll-view scroll-y
+          style="width:100%;height:100%;">
+        <view class="for_box"
+          wx:for='{{lists}}'
+          wx:key='index'>
+          <view class="for_item">{{item}} :</view>
+          <view class="item_detail"
+            wx:if="{{!changing}}">{{data[index]}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea"
+            value="{{data[index]}}"
+            auto-height="true"
+            data-id='{{index}}'
+            bindinput='input'></textarea>
+          
+        </view>
+      
+      </scroll-view>
+    
+    </view>
+  </view>
+
+  <view class="bottom_box">
+    <view class="bottom_item"
+      wx:if="{{user}}">
+    </view>
+    <view class="bottom_item"
+      bindtap="change"
+      wx:if="{{!user & !changing}}">
+      <image src="../../images/i.png"
+        mode="aspectFit"></image>
+      <view>修改</view>
+    </view>
+    <view class="bottom_item"
+      bindtap="confirm"
+      wx:if="{{!user & changing}}">
+      <image src="../../images/v.png"
+        mode="aspectFit"></image>
+      <view>完成</view>
+    </view>
+
+    <view class="bottom_item"
+      bindtap="close">
+      <view>关闭</view>
+      <image src="../../images/close.png"
+        mode="aspectFit"></image>
+    </view>
+  
+  </view>
+
+</view>
+
+
+
+
+

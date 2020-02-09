@@ -1,0 +1,29 @@
+<!--miniprogram/pages/changePasswd/changePasswd.wxml-->
+<view class="main_window">
+
+  <view class="username">{{username}}</view>
+  <view class="item_box">
+    <view class="front">原密码</view>
+    <input password="true"
+      bindinput="inputPasswd"
+      data-id='0'></input>
+  </view>
+  <view class="item_box">
+    <view class="front">新密码</view>
+    <input password="true"
+      bindinput="inputPasswd"
+      data-id='1'></input>
+  </view><view class="item_box">
+    <view class="front">确认密码</view>
+    <input password="true"
+      bindinput="inputPasswd"
+      data-id='2'></input>
+  </view>
+
+  <view class="btn_box">
+  
+    <view class="btn" bindtap="confirm">确 认 修 改</view>
+  </view>
+
+
+</view>
