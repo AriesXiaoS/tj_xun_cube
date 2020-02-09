@@ -80,6 +80,9 @@ Page({
     res[i].mother_tel = e.detail[10];
     res[i].addition = e.detail[11];
     //console.log(res)
+    wx.showLoading({
+      title: 'connecting',
+    })
     wx.cloud.callFunction({
       name:'alterOneStu',
       data:{
@@ -100,14 +103,19 @@ Page({
         that.setData({
           res: res
         })
+        wx.hideLoading()
         wx.showToast({
           title: '修改成功',
         })
       },
       fail:function(err){
-        wx.showToast({
+        wx.hideLoading()
+        wx.showModal({
           title: '修改失败',
-          image:'../../images/error.png'
+          content: '请检查网络连接',
+          showCancel: false,
+          confirmText: '我知道了',
+          confirmColor: '#ea5858'
         })
       }
     })

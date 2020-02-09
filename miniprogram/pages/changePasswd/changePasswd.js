@@ -79,6 +79,16 @@ Page({
                     confirmColor: '#ea5858'
                   })
                 }
+              },
+              fail:function(err){
+                wx.hideLoading()
+                wx.showModal({
+                  title: '修改失败',
+                  content: '请检查网络连接',
+                  showCancel: false,
+                  confirmText: '我知道了',
+                  confirmColor: '#ea5858'
+                })
               }
             })
           }

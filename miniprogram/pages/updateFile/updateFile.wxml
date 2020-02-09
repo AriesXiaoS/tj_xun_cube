@@ -1,10 +1,10 @@
 <!--miniprogram/pages/updateFile/updateFile.wxml-->
 <view class="full_width">
   <view class="top_detal">
-    <text>excel文件格式要求：</text>
+    <text>excel文件格式：</text>
     <text>1.首行为表头，数据从第二行开始</text>
-    <text>2.从左到右每一列的数据依次为：姓名、学号、年级、专业、班级、联系方式、宿舍、父亲姓名、父亲联系方式、母亲姓名、母亲联系方式、备注</text>
-    <text>3.学号相同则直接覆盖</text>
+    <text>2.从左到右每一列的数据依次为：姓名、学号、年级、专业、班级、联系方式、宿舍校区、宿舍楼栋、宿舍房间号、父亲姓名、父亲联系方式、母亲姓名、母亲联系方式、备注</text>
+    <text>3.学号为索引，不可重复，学号相同则直接覆盖</text>
   </view>
   <view class="update_btn"
     bindtap="chooseExcel">上传并解析excel</view>

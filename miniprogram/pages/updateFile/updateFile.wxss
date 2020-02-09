@@ -40,6 +40,7 @@
 }
 .file_name{
   margin: 20rpx;
+  width: 600rpx;
   
 }
 

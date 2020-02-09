@@ -36,6 +36,10 @@ Page({
   store:function(role){
     var that=this;
     var store=that.data.store;
+    //login successfully
+    wx.showToast({
+      title: '登录成功',
+    })
     wx.setStorage({
       key: 'store',
       data: store,
@@ -122,6 +126,8 @@ Page({
             })
           }else{
             //login successfully
+            wx.hideLoading()
+            wx.vibrateShort()
             that.store(res.data[0].role)
           }
         },
