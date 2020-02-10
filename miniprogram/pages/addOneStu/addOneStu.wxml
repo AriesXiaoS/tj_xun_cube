@@ -1,0 +1,80 @@
+<!--miniprogram/pages/addOneStu/addOneStu.wxml-->
+<view class="main_box">
+  <view class="title_box">添加信息</view>
+  <view class="one_box">
+    <text>姓名：</text>
+    <input bindinput="inputName"></input>
+  </view>
+  <view class="one_box">
+    <text>学号：</text>
+    <input bindinput="inputID"></input>
+  </view>
+  <view class="one_box">
+    <text>性别：</text>
+    <input bindinput="inputSex"></input>
+  </view>
+  <view class="one_box">
+    <text>年级：</text>
+    <input bindinput="inputGrade"></input>
+  </view>
+  <view class="one_box">
+    <text>学院：</text>
+    <input bindinput="inputCollege"></input>
+  </view>
+  <view class="one_box">
+    <text>专业：</text>
+    <input bindinput="inputMajor"></input>
+  </view>
+  <view class="one_box">
+    <text>班级：</text>
+    <input bindinput="inputClass"></input>
+  </view>
+  <view class="one_box">
+    <text>联系方式：</text>
+    <input bindinput="inputTel"></input>
+  </view>
+  <view class="one_box">
+    <text>班主任：</text>
+    <input bindinput="inputTeacher"></input>
+  </view>
+  <view class="one_box">
+    <text>班主任联系方式：</text>
+    <input bindinput="inputTeacherTel"></input>
+  </view>
+  <view class="one_box">
+    <text>宿舍校区：</text>
+    <input bindinput="inputCampus"></input>
+  </view>
+  <view class="one_box">
+    <text>宿舍楼栋：</text>
+    <input bindinput="inputBuilding"></input>
+  </view>
+  <view class="one_box">
+    <text>宿舍号：</text>
+    <input bindinput="inputRoom"></input>
+  </view>
+  <view class="one_box">
+    <text>父亲姓名：</text>
+    <input bindinput="inputFather"></input>
+  </view>
+  <view class="one_box">
+    <text>父亲联系方式：</text>
+    <input bindinput="inputFatherTel"></input>
+  </view>
+  <view class="one_box">
+    <text>母亲姓名：</text>
+    <input bindinput="inputMother"></input>
+  </view>
+  <view class="one_box">
+    <text>母亲联系方式：</text>
+    <input bindinput="inputMotherTel"></input>
+  </view>
+  <view class="one_box">
+    <text>备注：</text>
+    <input bindinput="inputRemark"></input>
+  </view>
+  
+  <button bindtap="confirm">确认添加</button>
+
+
+</view>

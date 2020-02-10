@@ -1,0 +1,56 @@
+/* miniprogram/pages/addOneStu/addOneStu.wxss */
+.main_box{
+  width: 750rpx;
+  display: flex;flex-direction: column;
+  justify-content: center;align-items: center;
+}
+.title_box{
+  width: 650rpx;
+  height: 80rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #ea5858;
+  border-bottom: 4rpx solid #ea5858;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.one_box{
+  width: 650rpx;
+  height: 60rpx;
+  margin-bottom: 10rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.one_box text{
+  width: 210rpx;
+  font-size: 26rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  
+}
+.one_box input{
+  width: 400rpx;
+  height: 55rpx;
+  font-size: 28rpx;
+  box-shadow: 0 1rpx 5rpx 1rpx rgba(100, 100, 100, 0.3);
+  padding-left: 10rpx;
+}
+
+button{
+  width: 650rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  color: #ea5858;
+  font-size: 36rpx;
+  margin-top: 12rpx;
+  margin-bottom: 25rpx;
+  background: linear-gradient(rgba(244,88,88,0.6),rgba(0,0,0,0));
+  box-shadow: 1rpx 1rpx 7rpx 2rpx rgba(244,88,88,0.7);
+}

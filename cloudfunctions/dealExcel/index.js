@@ -29,7 +29,6 @@ exports.main = async (event, context) => {
         const promise=db.collection('students').doc('' + row[1]).set({
           data:{
             name:''+row[0],
-            
             grade: '' + row[2],
             major: '' +row[3],
             class: '' +row[4],

@@ -83,7 +83,7 @@
 }
 .for_item{
   height: 60rpx;
-  width: 150rpx;
+  width: 250rpx;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -92,13 +92,13 @@
 
 }
 .item_detail{
-  width: 400rpx;
+  width: 320rpx;
   white-space: pre-wrap;
   word-wrap: break-word;
   padding-left: 10rpx;
 }
 .item_detail_textarea{
-  width: 400rpx;
+  width: 320rpx;
   height: 1rem;
   white-space: pre-wrap;
   word-wrap: break-word;

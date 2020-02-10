@@ -162,3 +162,14 @@
   font-size: 28rpx;
   color:rgba(50,50,50,0.5);
 }
+
+
+.show_more{
+  height: 100rpx;
+  color: rgba(100, 100, 100, 0.6);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25rpx;
+}

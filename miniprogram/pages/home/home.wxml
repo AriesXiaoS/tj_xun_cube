@@ -54,12 +54,14 @@
             bindtap="select"
             data-id="{{index}}"
             wx:for="{{res}}"
-            wx:key="_id">
+            wx:key="id">
             <text class="name">{{item.name}}</text>
             <text class="name">{{item._id}}</text>
             <text class="major">{{item.major}}</text>
           
           </view>
+
+          <view class="show_more" bindtap="showMore" wx:if="{{show_more}}">加载更多</view>
         </scroll-view>
       </view>
     
@@ -87,18 +89,27 @@
       </view>
 
       <view class="setting" wx:if="{{role>0}}"
+        bindtap="uploadFile">
+        <image src="../../images/upload.png"
+          mode="aspectFit"></image>
+        <view class="setting_text">添加单人信息</view>
+      </view>
+
+      <view class="setting" wx:if="{{role>1}}"
+        bindtap="uploadFile">
+        <image src="../../images/delete_many.png"
+          mode="aspectFit"></image>
+        <view class="setting_text">批量删除数据</view>
+      </view>
+
+      <view class="setting" wx:if="{{role>1}}"
         bindtap="setAccount">
         <image src="../../images/new.png"
           mode="aspectFit"></image>
         <view class="setting_text">管理员账户管理</view>
       </view>
 
-      <view class="setting" wx:if="{{role>1}}"
-        bindtap="uploadFile">
-        <image src="../../images/upload.png"
-          mode="aspectFit"></image>
-        <view class="setting_text">批量导入信息</view>
-      </view>
+      
 
       <view class="setting"></view>
 

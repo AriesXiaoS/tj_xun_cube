@@ -5,7 +5,7 @@ Component({
    */
   properties: {
     select_data:{
-      type:Array,
+      type:Object,
       value:''
     },
     role:{
@@ -18,9 +18,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    lists:['姓名','学号','年级','专业','班级',
-      '联系方式', '宿舍号', '父亲姓名', '练习方式',
-      '母亲姓名', '联系方式', '备注'],
     changing:false,
     data:'',
     init_data:'',
@@ -55,7 +52,7 @@ Component({
       var that=this;
       wx.showModal({
         title: '确认删除',
-        content: '确认删除 ' + that.data.data[0] + ' ' + that.data.data[1] + ' ?',
+        content: '确认删除 ' + that.data.data.name + ' ' + that.data.data._id + ' ?',
         confirmColor:'#ea5858',
         success(res){
           if(res.confirm){
@@ -92,12 +89,157 @@ Component({
       
     },
     /**
-     * input in textarea
+     * input  (i give up 'for' block)
      */
-    input:function(e){
+    inputName:function(e){
       //console.log(e)
       var data = this.data.data;
-      data[e.currentTarget.dataset.id]=e.detail.value;
+      data.name=e.detail.value;
+      //console.log(data.name)
+      this.setData({
+        data: data
+      })
+    },
+    inputSex: function (e) {
+      //console.log(e)
+      var data = this.data.data;
+      data.sex = e.detail.value;
+      //console.log(data.sex)
+      this.setData({
+        data: data
+      })
+    },
+    inputGrade: function (e) {
+      //console.log(e)
+      var data = this.data.data;
+      data.grade = e.detail.value;
+      //console.log(data.grade)
+      this.setData({
+        data: data
+      })
+    },
+    inputCollege: function (e) {
+      //console.log(e)
+      var data = this.data.data;
+      data.college = e.detail.value;
+      //console.log(data.college)
+      this.setData({
+        data: data
+      })
+    },
+    inputMajor: function (e) {
+      //console.log(e)
+      var data = this.data.data;
+      data.major = e.detail.value;
+      //console.log(data.major)
+      this.setData({
+        data: data
+      })
+    },
+    inputClass: function (e) {
+      //console.log(e)
+      var data = this.data.data;
+      data.class = e.detail.value;
+      console.log(data.class)
+      this.setData({
+        data: data
+      })
+    },
+    inputTel: function (e) {
+      //console.log(e)
+      var data = this.data.data;
+      data.tel = e.detail.value;
+      //console.log(data.tel)
+      this.setData({
+        data: data
+      })
+    },
+    inputTeacher: function (e) {
+      //console.log(e)
+      var data = this.data.data;
+      data.teacher = e.detail.value;
+      //console.log(data.teacher)
+      this.setData({
+        data: data
+      })
+    },
+    inputTeacherTel: function (e) {
+      //console.log(e)
+      var data = this.data.data;
+      data.teacher_tel = e.detail.value;
+      //console.log(data.teacher_tel)
+      this.setData({
+        data: data
+      })
+    },
+    inputCampus: function (e) {
+      //console.log(e)
+      var data = this.data.data;
+      data.campus = e.detail.value;
+      //console.log(data.campus)
+      this.setData({
+        data: data
+      })
+    },
+    inputBuilding: function (e) {
+      //console.log(e)
+      var data = this.data.data;
+      data.building = e.detail.value;
+      //console.log(data.building)
+      this.setData({
+        data: data
+      })
+    },
+    inputRoom: function (e) {
+      //console.log(e)
+      var data = this.data.data;
+      data.room = e.detail.value;
+      //console.log(data.room)
+      this.setData({
+        data: data
+      })
+    },
+    inputFather: function (e) {
+      //console.log(e)
+      var data = this.data.data;
+      data.father = e.detail.value;
+      //console.log(data.father)
+      this.setData({
+        data: data
+      })
+    },
+    inputFatherTel: function (e) {
+      //console.log(e)
+      var data = this.data.data;
+      data.father_tel = e.detail.value;
+      //console.log(data.father_tel)
+      this.setData({
+        data: data
+      })
+    },
+    inputMother: function (e) {
+      //console.log(e)
+      var data = this.data.data;
+      data.mother = e.detail.value;
+      //console.log(data.mother)
+      this.setData({
+        data: data
+      })
+    },
+    inputMotherTel: function (e) {
+      //console.log(e)
+      var data = this.data.data;
+      data.mother_tel = e.detail.value;
+      //console.log(data.mother_tel)
+      this.setData({
+        data: data
+      })
+    },
+    inputRemark: function (e) {
+      //console.log(e)
+      var data = this.data.data;
+      data.remark = e.detail.value;
+      //console.log(data.remark)
       this.setData({
         data: data
       })

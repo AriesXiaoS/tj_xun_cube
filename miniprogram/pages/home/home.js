@@ -19,6 +19,10 @@ Page({
     select_i:'',
     role:0,
     username:'none',
+    max_limit:10,
+    skip:0,
+    last_input:'',
+    show_more:false
 
 
   },
@@ -34,14 +38,9 @@ Page({
   select:function(e){
     var i = parseInt(e.currentTarget.dataset.id)
     var res=this.data.res;
-    var select_data = [res[i].name, res[i]._id, res[i].grade, 
-      res[i].major, res[i].class, res[i].tel, res[i].dor,
-      res[i].farther_name, 
-      res[i].farther_tel, res[i].mother_name, res[i].mother_tel,
-      res[i].addition];
 
     this.setData({
-      select_data:select_data,
+      select_data:res[i],
       select_i:i
     })
 
@@ -65,48 +64,22 @@ Page({
   alterData:function(e){
     var that=this;
     //console.log(e.detail)
-    var i = this.data.select_i;
-    var res=this.data.res;
-    res[i].name=e.detail[0];
-    res[i]._id = e.detail[1];
-    res[i].grade = e.detail[2];
-    res[i].major = e.detail[3];
-    res[i].class = e.detail[4];
-    res[i].tel = e.detail[5];
-    res[i].dor = e.detail[6];
-    res[i].farther_name = e.detail[7];
-    res[i].farther_tel = e.detail[8];
-    res[i].mother_name = e.detail[9];
-    res[i].mother_tel = e.detail[10];
-    res[i].addition = e.detail[11];
+    var input_value=this.data.input_value;
     //console.log(res)
     wx.showLoading({
       title: 'connecting',
     })
     wx.cloud.callFunction({
       name:'alterOneStu',
-      data:{
-        name : e.detail[0],
-        _id : e.detail[1],
-        grade : e.detail[2],
-        major : e.detail[3],
-        class : e.detail[4],
-        tel : e.detail[5],
-        dor : e.detail[6],
-        farther_name : e.detail[7],
-        farther_tel : e.detail[8],
-        mother_name : e.detail[9],
-        mother_tel : e.detail[10],
-        addition : e.detail[11]
-      },
+      data:e.detail,
       success:function(res1){
-        that.setData({
-          res: res
-        })
         wx.hideLoading()
         wx.showToast({
           title: '修改成功',
         })
+        setTimeout(function(){
+          that.sql(input_value)
+        },600)
       },
       fail:function(err){
         wx.hideLoading()
@@ -157,26 +130,36 @@ Page({
     
   },
 
+  /**
+   * search in database
+   */
+
   sql:function(input_value){
     var db = wx.cloud.database();
     var that = this;
+    var show_more=false;
+    var max_limit = this.data.max_limit;
     var _ = db.command
     wx.showLoading({
       title: '查询中',
     })
-    db.collection('students').where(_.or([{
-      _id: db.RegExp({
-        regexp: input_value,
-        option: 'isg'
-      })
+    db.collection('students').where(_.or([
+    {
+        _id: parseInt(input_value)
     },
     {
       name: db.RegExp({
         regexp: input_value,
         option: 'isg'
       })
+    },
+    {
+      _id: db.RegExp({
+        regexp: input_value,
+        option: 'isg'
+      })
     }
-    ])).get({
+    ])).limit(max_limit).get({
       success: function (res) {
         //console.log(res.data)
         if (res.data.length == 0) {
@@ -189,9 +172,16 @@ Page({
             image: '../../images/error.png'
           })
         } else {
-          //console.log(res)
+          //success!
+          if(res.data.length<max_limit){
+            show_more=false
+          }else{
+            show_more=true
+          }
           that.setData({
             res: res.data,
+            last_input:input_value,
+            show_more: show_more,
             nothing: false
           })
           wx.hideLoading()
@@ -275,6 +265,74 @@ Page({
         }
       }
     })
+  },
+
+  /**
+   * showMore
+   */
+  showMore:function(){
+    var last_input = this.data.last_input;
+    var that=this;
+    var db=wx.cloud.database();
+    var _ = db.command;
+    var max_limit = this.data.max_limit;
+    var skip=this.data.skip;
+    skip = skip + max_limit;
+    wx.showLoading({
+      title: '查询中',
+    })
+    db.collection('students').where(_.or([
+      {
+        _id: parseInt(last_input)
+      },
+      {
+        name: db.RegExp({
+          regexp: last_input,
+          option: 'isg'
+        })
+      },
+      {
+        _id: db.RegExp({
+          regexp: last_input,
+          option: 'isg'
+        })
+      }
+    ])).skip(skip).limit(max_limit).get({
+      success: function (res) {
+        console.log(res.data)
+        if (res.data.length == 0) {
+          wx.hideLoading()
+          wx.showToast({
+            title: '没有更多了',
+            image: '../../images/error.png'
+          })
+          that.setData({
+            show_more:false
+          })
+        } else {
+          //success!
+          that.setData({
+            res: that.data.res.concat(res.data),
+            skip:skip,
+            show_more: (res.data.length < max_limit) ? false : true 
+          })
+          wx.hideLoading()
+        }
+      },
+      fail: function (res) {
+        //console.log('error')
+        wx.hideLoading()
+        wx.showModal({
+          title: '查询失败',
+          content: '请检查网络连接',
+          showCancel: false,
+          confirmText: '我知道了',
+          confirmColor: '#ea5858'
+        })
+      }
+    })
+
+
   },
 
   /**

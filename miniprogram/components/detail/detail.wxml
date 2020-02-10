@@ -9,19 +9,163 @@
     <view class="scorll_box">
       <scroll-view scroll-y
           style="width:100%;height:100%;">
-        <view class="for_box"
-          wx:for='{{lists}}'
-          wx:key='index'>
-          <view class="for_item">{{item}} :</view>
+
+        <view class="for_box">
+          <view class="for_item">姓名:</view>
           <view class="item_detail"
-            wx:if="{{!changing || index==1}}">{{data[index]}}</view>
-          <textarea wx:if="{{changing && index!=1}}"
-            class="item_detail_textarea"
-            value="{{data[index]}}"
-            auto-height="true"
-            data-id='{{index}}'
-            bindinput='input'></textarea>
-          
+            wx:if="{{!changing}}">{{data.name}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea" value="{{data.name}}"
+            auto-height="true" bindinput='inputName'></textarea>
+        </view>
+
+        <view class="for_box">
+          <view class="for_item">学号:</view>
+          <view class="item_detail">{{data._id}}</view>
+        </view>
+
+        <view class="for_box">
+          <view class="for_item">性别:</view>
+          <view class="item_detail"
+            wx:if="{{!changing}}">{{data.sex}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea" value="{{data.sex}}"
+            auto-height="true"bindinput='inputSex'></textarea>
+        </view>
+
+        <view class="for_box">
+          <view class="for_item">年级:</view>
+          <view class="item_detail"
+            wx:if="{{!changing}}">{{data.grade}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea" value="{{data.grade}}"
+            auto-height="true" bindinput='inputGrade'></textarea>
+        </view>
+
+        <view class="for_box">
+          <view class="for_item">学院:</view>
+          <view class="item_detail"
+            wx:if="{{!changing}}">{{data.college}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea" value="{{data.college}}"
+            auto-height="true" bindinput='inputCollege'></textarea>
+        </view>
+
+        <view class="for_box">
+          <view class="for_item">专业:</view>
+          <view class="item_detail"
+            wx:if="{{!changing}}">{{data.major}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea" value="{{data.major}}"
+            auto-height="true" bindinput='inputMajor'></textarea>
+        </view>
+
+        <view class="for_box">
+          <view class="for_item">班级:</view>
+          <view class="item_detail"
+            wx:if="{{!changing}}">{{data.class}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea" value="{{data.class}}"
+            auto-height="true" bindinput='inputClass'></textarea>
+        </view>
+
+        <view class="for_box">
+          <view class="for_item">联系方式:</view>
+          <view class="item_detail"
+            wx:if="{{!changing}}">{{data.tel}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea" value="{{data.tel}}"
+            auto-height="true" bindinput='inputTel'></textarea>
+        </view>
+
+        <view class="for_box">
+          <view class="for_item">班主任:</view>
+          <view class="item_detail"
+            wx:if="{{!changing}}">{{data.teacher}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea" value="{{data.teacher}}"
+            auto-height="true" bindinput='inputTeacher'></textarea>
+        </view>
+
+        <view class="for_box">
+          <view class="for_item">班主任联系方式:</view>
+          <view class="item_detail"
+            wx:if="{{!changing}}">{{data.teacher_tel}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea" value="{{data.teacher_tel}}"
+            auto-height="true" data-name='tel' bindinput='inputTeacherTel'></textarea>
+        </view>
+
+        <view class="for_box">
+          <view class="for_item">宿舍校区:</view>
+          <view class="item_detail"
+            wx:if="{{!changing}}">{{data.campus}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea" value="{{data.campus}}"
+            auto-height="true" bindinput='inputCampus'></textarea>
+        </view>
+
+        <view class="for_box">
+          <view class="for_item">宿舍楼栋:</view>
+          <view class="item_detail"
+            wx:if="{{!changing}}">{{data.building}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea" value="{{data.building}}"
+            auto-height="true" bindinput='inputBuilding'></textarea>
+        </view>
+
+        <view class="for_box">
+          <view class="for_item">宿舍号:</view>
+          <view class="item_detail"
+            wx:if="{{!changing}}">{{data.room}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea" value="{{data.room}}"
+            auto-height="true"bindinput='inputRoom'></textarea>
+        </view>
+
+        <view class="for_box">
+          <view class="for_item">父亲姓名:</view>
+          <view class="item_detail"
+            wx:if="{{!changing}}">{{data.father}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea" value="{{data.father}}"
+            auto-height="true" bindinput='inputFather'></textarea>
+        </view>
+
+        <view class="for_box">
+          <view class="for_item">父亲联系方式:</view>
+          <view class="item_detail"
+            wx:if="{{!changing}}">{{data.father_tel}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea" value="{{data.father_tel}}"
+            auto-height="true" bindinput='inputFatherTel'></textarea>
+        </view>
+
+        <view class="for_box">
+          <view class="for_item">母亲姓名:</view>
+          <view class="item_detail"
+            wx:if="{{!changing}}">{{data.mother}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea" value="{{data.mother}}"
+            auto-height="true" bindinput='inputMother'></textarea>
+        </view>
+
+        <view class="for_box">
+          <view class="for_item">母亲联系方式:</view>
+          <view class="item_detail"
+            wx:if="{{!changing}}">{{data.mother_tel}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea" value="{{data.mother_tel}}"
+            auto-height="true" bindinput='inputMotherTel'></textarea>
+        </view>
+
+        <view class="for_box">
+          <view class="for_item">备注:</view>
+          <view class="item_detail"
+            wx:if="{{!changing}}">{{data.remark}}</view>
+          <textarea wx:if="{{changing}}"
+            class="item_detail_textarea" value="{{data.remark}}"
+            auto-height="true" bindinput='inputRemark'></textarea>
         </view>
       
       </scroll-view>
@@ -49,7 +193,7 @@
     </view>
 
     <view class="bottom_item"
-      wx:if="{{role>1}}"
+      wx:if="{{role>0}}"
       bindtap="deleteOneStu">删除</view>
 
     <view class="bottom_item"

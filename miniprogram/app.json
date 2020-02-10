@@ -1,7 +1,7 @@
 {
   "pages": [
+    "pages/addOneStu/addOneStu",
     "pages/index/index",
-    "pages/updateFile/updateFile",
     "pages/changePasswd/changePasswd",
     "pages/account/account",
     "pages/home/home"
