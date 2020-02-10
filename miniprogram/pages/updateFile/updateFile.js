@@ -104,6 +104,7 @@ Page({
         //console.log(res)
         if(typeof(res.result==Array)){
           //console.log(res.result.length)
+          wx.hideLoading()
           wx.showToast({
             title: '成功导入' + res.result.length +'条',
             duration:1500
@@ -148,7 +149,6 @@ Page({
           fileList: files,
           success:res=>{
             that.clearDatabase()
-            
           },
           fail:err=>{
             wx.hideLoading()

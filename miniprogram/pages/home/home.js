@@ -282,13 +282,12 @@ Page({
    */
   onLoad: function (options) {
     //console.log(typeof(options.role))
-    var username=options.username;
     var role_names=['普通用户','管理员','root','su'];
 
     this.setData({
       role: parseInt(options.role),
       role_name: role_names[parseInt(options.role)],
-      username: username
+      username: options.username
     })
   },
 
