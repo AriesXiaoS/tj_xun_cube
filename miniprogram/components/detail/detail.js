@@ -62,7 +62,7 @@ Component({
             wx.cloud.callFunction({
               name: 'deleteOneStu',
               data: {
-                stuid: that.data.data[1]
+                stuid: that.data.data._id
               },
               success: function (res) {
                 wx.showToast({
