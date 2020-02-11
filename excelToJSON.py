@@ -1,6 +1,6 @@
 import xlrd
 import tkinter as tk
-from tkinter import filedialo
+from tkinter import filedialog
 
 def toJSON(excel_path):
     xl=xlrd.open_workbook(excel_path)
