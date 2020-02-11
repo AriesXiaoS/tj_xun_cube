@@ -1,0 +1,58 @@
+<!--miniprogram/pages/deleteStudents/deleteStudents.wxml-->
+
+<view class="main_box">
+  <view class="title_box">批量删除</view>
+  <view class="choose_box">
+    <view class="choose_title">选择分类：</view>
+
+    <view class="choose_item" >
+      <view class="choose_btn"bindtap="chooseGrade">
+        <text>按年级</text>
+        <image src="../../images/v.png"
+          mode="aspectFit"
+          wx:if="{{choose_grade}}"
+          style="width:40rpx;height:40rpx;"></image>
+      </view>
+      <picker mode='selector'
+        wx:if="{{choose_grade}}"
+        range="{{grades}}"
+        range-key="_id"
+        bindchange="changeGrade"
+        value='{{grade_i}}'>
+          <view class="picker_item">
+            <text class="picker_text">{{grades[grade_i]._id}}</text>
+            <image src="../../images/picker.png"
+              mode="aspectFit"
+              style="width:30rpx;height:30rpx;opacity:0.4;"></image>
+            </view>
+        </picker> 
+    </view>
+
+    <view class="choose_item" >
+      <view class="choose_btn"bindtap="chooseMajor">
+        <text>按专业</text>
+        <image src="../../images/v.png"
+          mode="aspectFit"
+          wx:if="{{choose_major}}"
+          style="width:40rpx;height:40rpx;"></image>
+      </view>
+      <picker mode='selector'
+        wx:if="{{choose_major}}"
+        range="{{majors}}"
+        range-key="_id"
+        bindchange="changeMajor"
+        value='{{major_i}}'>
+          <view class="picker_item">
+            <text class="picker_text">{{majors[major_i]._id}}</text>
+            <image src="../../images/picker.png"
+              mode="aspectFit"
+              style="width:30rpx;height:30rpx;opacity:0.4;"></image>
+            </view>
+        </picker> 
+    </view>
+    
+  </view>
+
+  <button bindtap="deleteBtn">删 除</button>
+
+</view>

@@ -89,14 +89,14 @@
       </view>
 
       <view class="setting" wx:if="{{role>0}}"
-        bindtap="uploadFile">
+        bindtap="addOneStu">
         <image src="../../images/upload.png"
           mode="aspectFit"></image>
         <view class="setting_text">添加单人信息</view>
       </view>
 
       <view class="setting" wx:if="{{role>1}}"
-        bindtap="uploadFile">
+        bindtap="deleteStudents">
         <image src="../../images/delete_many.png"
           mode="aspectFit"></image>
         <view class="setting_text">批量删除数据</view>

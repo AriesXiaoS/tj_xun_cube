@@ -1,0 +1,76 @@
+/* miniprogram/pages/deleteStudents/deleteStudents.wxss */
+.main_box{
+  width: 750rpx;
+  display: flex;flex-direction: column;
+  justify-content: center;align-items: center;
+}
+.title_box{
+  width: 650rpx;
+  height: 80rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #ea5858;
+  border-bottom: 4rpx solid #ea5858;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+.choose_box{
+  width: 650rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.choose_title{
+  width: 100%;
+  text-align: start;
+  font-size: 30rpx;margin-bottom: 10rpx;
+}
+.choose_item{
+  width: 520rpx;
+  margin: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.choose_btn{
+  width: 150rpx;
+  height: 60rpx;
+  display: flex;
+  font-size: 32rpx;
+  padding-left: 10rpx;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 20rpx;
+  box-shadow: 1rpx 1rpx 3rpx 2rpx rgba(50, 50, 50, 0.2);
+}
+.picker_item{
+  width:320rpx;
+  height: 60rpx;
+  box-shadow: 1rpx 1rpx 4rpx 2rpx rgba(50, 50, 50, 0.3);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.picker_text{
+  width: 250rpx;
+  font-size: 30rpx;
+  margin-left: 10rpx;
+}
+
+button{
+  width: 500rpx;
+  height: 80rpx;
+  border-radius: 20rpx;
+  display: flex;
+  color:#ea5858;
+  justify-content: center;align-items: center;
+  margin-top: 100rpx;
+  box-shadow: 1rpx 2rpx 5rpx 2rpx rgba(244 , 88, 88, 0.6);
+}

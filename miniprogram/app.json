@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/addOneStu/addOneStu",
     "pages/index/index",
+    "pages/deleteStudents/deleteStudents",
+    "pages/addOneStu/addOneStu",
     "pages/changePasswd/changePasswd",
     "pages/account/account",
     "pages/home/home"

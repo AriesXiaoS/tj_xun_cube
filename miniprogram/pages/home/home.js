@@ -242,9 +242,14 @@ Page({
   /**
    * uploadFile
    */
-  uploadFile:function(e){
+  addOneStu:function(e){
     wx.navigateTo({
-      url: '../updateFile/updateFile'
+      url: '../addOneStu/addOneStu'
+    })
+  },
+  deleteStudents:function(){
+    wx.navigateTo({
+      url: '../deleteStudents/deleteStudents',
     })
   },
 
