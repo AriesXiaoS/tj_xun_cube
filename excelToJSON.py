@@ -1,4 +1,6 @@
 import xlrd
+import tkinter as tk
+from tkinter import filedialog
 
 excel_path='test_excel.xlsx'
 
@@ -27,10 +29,22 @@ def toJSON(excel_path):
     return result
 
 if __name__=='__main__':
-    res=toJSON(excel_path)
-    print('共找到{}条数据'.format(len(res)))
-    fp=open('result.json','w',encoding='utf-8',newline='\n')
-    for i in range(len(res)):
-        fp.write(res[i])
-    fp.close()
-    print('result.json写入完成')
+    root=tk.Tk()
+    root.withdraw()
+    root.update()
+    excel_path=filedialog.askopenfilename()
+    #print(excel_path)
+    file_type=excel_path.split('.')[-1]
+    if file_type=='xlsx' or file_type=='xls':
+        res=toJSON(excel_path)
+        print('共找到{}条数据'.format(len(res)))
+        fp=open('result.json','w',encoding='utf-8',newline='\n')
+        for i in range(len(res)):
+            fp.write(res[i])
+        fp.close()
+        print('result.json写入完成')
+    else:
+        print('文件类型错误！')
+    
+    a=input('\n按回车键退出......')
+    
