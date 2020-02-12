@@ -113,7 +113,7 @@
   font-size: 40rpx;
   width: 200rpx;
   text-align: center;
-  color: #b9292b;
+  color: black;
 }
 .major{
   width: 300rpx;

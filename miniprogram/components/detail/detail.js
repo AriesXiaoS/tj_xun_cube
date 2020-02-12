@@ -28,6 +28,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
+
+    copyTel:function(e){
+      //console.log(e)
+      wx.makePhoneCall({
+        phoneNumber: e.currentTarget.dataset.tel
+      })
+    },
     /**
      * close the component
      */

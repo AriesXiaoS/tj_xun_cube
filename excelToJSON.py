@@ -17,6 +17,7 @@ def toJSON(excel_path):
             if '\n' in cell:
                 cell.replace('\n','')
             #print(cell)
+            cell=cell.replace('\r','').replace('\n','')
             oneline += '"{}":"{}"'.format(keys[j],cell)
             if j!=(len(keys)-1):
                 oneline += ','

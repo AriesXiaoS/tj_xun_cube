@@ -17,7 +17,7 @@ Page({
     adding:false,
     selected:0,
     role_style:['background-color:#ea5858;font-weight:bold;color:white;',
-      'background-color:white; font-weight: regular; color: #ea5858;'],
+      'background-color:rgba(0,0,0,0); font-weight: regular; color: #ea5858;'],
     role_true:'background-color:#ea5858;font-weight:bold;color:white;',
     role_false:'background-color:rgba(0,0,0,0); font-weight: regular; color: #ea5858;',
     username:'',
