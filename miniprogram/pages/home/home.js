@@ -180,6 +180,7 @@ Page({
           }
           that.setData({
             res: res.data,
+            skip:0,
             last_input:input_value,
             show_more: show_more,
             nothing: false
